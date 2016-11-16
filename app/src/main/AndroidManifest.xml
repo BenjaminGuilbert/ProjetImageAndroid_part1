@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".CaptureActivity" />
-        <activity android:name=".LibraryActivity"></activity>
+        <activity android:name=".LibraryActivity" />
+        <activity android:name=".AnalysisActivity"></activity>
     </application>
 
 </manifest>

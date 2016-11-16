@@ -41,11 +41,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnAnalysis = (Button) findViewById(R.id.btnAnalysis);
         btnLibrary = (Button) findViewById(R.id.btnLibrary);
         imageCaptured = (ImageView) findViewById(R.id.imageCaptured);
+        imageCaptured.setImageResource(R.drawable.tower);
 
         btnCapture.setOnClickListener(this);
         btnLibrary.setOnClickListener(this);
+        btnAnalysis.setOnClickListener(this);
 
-        Log.i(tag, "OnCreate");
+        Log.i(tag, "MainActivity : OnCreate");
     }
 
 
@@ -59,6 +61,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnLibrary:
                 Intent intentLibrary = new Intent(MainActivity.this, LibraryActivity.class);
                 startActivityForResult(intentLibrary, Library_RequestCode);
+                break;
+            case R.id.btnAnalysis:
+                Intent intentAnalyse = new Intent(MainActivity.this, AnalysisActivity.class);
+                Bundle extras = new Bundle();
+                extras.putParcelable("image",imageCaptured.getDrawingCache());
+                intentAnalyse.putExtras(extras);
+                startActivity(intentAnalyse);
                 break;
             default:
                 break;
