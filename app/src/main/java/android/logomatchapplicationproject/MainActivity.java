@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intentAnalyse = new Intent(MainActivity.this, AnalysisActivity.class);
                 Bundle extras = new Bundle();
                 extras.putParcelable("image",imageCaptured.getDrawingCache());
+                //passer url du fichier en parametre
                 intentAnalyse.putExtras(extras);
                 startActivity(intentAnalyse);
                 break;
