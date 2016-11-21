@@ -1,7 +1,12 @@
 package android.logomatchapplicationproject;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -55,12 +60,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btnCapture:
-                Intent intentCapture = new Intent(MainActivity.this, CaptureActivity.class);
-                startActivityForResult(intentCapture, Capture_RequestCode);
+                Intent mediaCapture =  new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(mediaCapture, Capture_RequestCode);
                 break;
             case R.id.btnLibrary:
-                Intent intentLibrary = new Intent(MainActivity.this, LibraryActivity.class);
-                startActivityForResult(intentLibrary, Library_RequestCode);
+                Intent mediaLibrary = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(mediaLibrary, Library_RequestCode);
                 break;
             case R.id.btnAnalysis:
                 Intent intentAnalyse = new Intent(MainActivity.this, AnalysisActivity.class);
@@ -73,5 +78,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             default:
                 break;
         }
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == Capture_RequestCode && resultCode == RESULT_OK){
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            imageCaptured.setImageBitmap(imageBitmap);
+        }
+        else if(requestCode == Library_RequestCode && resultCode == RESULT_OK){
+            Uri selectedImage = data.getData();
+            String[] filePathColumn = { MediaStore.Images.Media.DATA };
+            Cursor cursor = getContentResolver().query(selectedImage,filePathColumn, null, null, null);
+            cursor.moveToFirst();
+            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+            String picturePath = cursor.getString(columnIndex);
+            cursor.close();
+            imageCaptured.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+        }
+
     }
 }
