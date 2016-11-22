@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnCapture;
     Button btnAnalysis;
     Button btnLibrary;
-
     ImageView imageCaptured;
 
     // Request Code of the Capture activity
@@ -46,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnAnalysis = (Button) findViewById(R.id.btnAnalysis);
         btnLibrary = (Button) findViewById(R.id.btnLibrary);
         imageCaptured = (ImageView) findViewById(R.id.imageCaptured);
-        imageCaptured.setImageResource(R.drawable.tower);
+        imageCaptured.setImageResource(R.drawable.noimageicon);
 
         btnCapture.setOnClickListener(this);
         btnLibrary.setOnClickListener(this);
@@ -59,14 +58,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()){
+            //Click on Capture Button
             case R.id.btnCapture:
                 Intent mediaCapture =  new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(mediaCapture, Capture_RequestCode);
                 break;
+            //Click on Library Button
             case R.id.btnLibrary:
                 Intent mediaLibrary = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(mediaLibrary, Library_RequestCode);
                 break;
+            //Click on Analysis Button
             case R.id.btnAnalysis:
                 Intent intentAnalyse = new Intent(MainActivity.this, AnalysisActivity.class);
                 Bundle extras = new Bundle();
@@ -84,22 +86,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
+        // if image is captured by the
         if(requestCode == Capture_RequestCode && resultCode == RESULT_OK){
-            Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
-            imageCaptured.setImageBitmap(imageBitmap);
+            Uri selectedImageUri = data.getData();
+            imageCaptured.setImageURI(selectedImageUri);
         }
         else if(requestCode == Library_RequestCode && resultCode == RESULT_OK){
-            Uri selectedImage = data.getData();
-            String[] filePathColumn = { MediaStore.Images.Media.DATA };
-            Cursor cursor = getContentResolver().query(selectedImage,filePathColumn, null, null, null);
-            cursor.moveToFirst();
-            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-            String picturePath = cursor.getString(columnIndex);
-            cursor.close();
-            imageCaptured.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+            Uri selectedImageUri = data.getData();
+            imageCaptured.setImageURI(selectedImageUri);
         }
 
     }
+
+    
 }
