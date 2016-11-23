@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import org.bytedeco.javacpp.opencv_core.*;
 import java.io.FileInputStream;
 
 public class AnalysisActivity extends AppCompatActivity {
@@ -33,9 +34,11 @@ public class AnalysisActivity extends AppCompatActivity {
         //convert Bitmapo MAT
         //Utils.
 
+        Mat tmp = new Mat(bmp.getHeight(), bmp.getWidth(),CvType.CV_8UC1);
 
 
-      //  Bundle extras = getIntent().getExtras();
+
+        //  Bundle extras = getIntent().getExtras();
         //Bitmap bmp = extras.getParcelable("image");
 
         imageToAnalyse.setImageBitmap(bmp );
