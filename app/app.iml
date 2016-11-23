@@ -135,8 +135,8 @@
     <orderEntry type="library" exported="" name="artoolkitplus-2.3.1-0.11" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="junit-4.12" level="project" />
     <orderEntry type="library" exported="" name="libfreenect-0.5.2-0.11" level="project" />
-    <orderEntry type="library" exported="" name="flandmark-1.07-0.11" level="project" />
     <orderEntry type="library" exported="" name="videoinput-0.200-0.11" level="project" />
+    <orderEntry type="library" exported="" name="flandmark-1.07-0.11" level="project" />
     <orderEntry type="library" exported="" name="ffmpeg-2.6.1-0.11-android-arm" level="project" />
     <orderEntry type="library" exported="" name="android-android-24" level="project" />
   </component>
