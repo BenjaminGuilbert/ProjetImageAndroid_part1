@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import java.io.IOException;
 
 
 /*
@@ -87,15 +88,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         // if image is captured by the
-        if(requestCode == Capture_RequestCode && resultCode == RESULT_OK){
+        if((requestCode == Capture_RequestCode || requestCode == Library_RequestCode) && resultCode == RESULT_OK){
             Uri selectedImageUri = data.getData();
+            //Configure the imageView to display the image in portrait and in the center of it
+            imageCaptured.setRotation(90);
+            imageCaptured.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             imageCaptured.setImageURI(selectedImageUri);
         }
-        else if(requestCode == Library_RequestCode && resultCode == RESULT_OK){
-            Uri selectedImageUri = data.getData();
-            imageCaptured.setImageURI(selectedImageUri);
-        }
-
     }
 
     
