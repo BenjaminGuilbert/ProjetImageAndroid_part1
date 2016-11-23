@@ -8,11 +8,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import org.bytedeco.javacpp.opencv_core;
 import org.bytedeco.javacpp.opencv_core.*;
 import org.bytedeco.javacpp.opencv_features2d.*;
 import org.bytedeco.javacv.CanvasFrame;
 import org.bytedeco.javacv.FrameConverter;
 import org.bytedeco.javacv.OpenCVFrameConverter;
+import static org.bytedeco.javacpp.opencv_highgui.imread;
+import org.opencv.android.Utils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -28,7 +31,7 @@ public class AnalysisActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_analysis);
 
-        imageToAnalyse = (ImageView) findViewById(R.id.imageToAnalyse) ;
+        imageToAnalyse = (ImageView) findViewById(R.id.imageToAnalyse);
         Bitmap bmp = null;
         String filename = getIntent().getStringExtra("image");
         try {
@@ -39,47 +42,21 @@ public class AnalysisActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        Mat imageMat = new Mat(bmp.getHeight(), bmp.getWidth());
+        Utils.bitmapToMat(bmp, tmp);
 
-        imageToAnalyse.setImageBitmap(bmp );
-        //convert Bitmapo MAT
-        //Utils.
 
-        Mat tmp = new Mat(bmp.getHeight(), bmp.getWidth(),CV_8UC1);
+        //File fileTest = new File("assets/Data_BOW/TrainImage/Coca_1.jpg");
+       // Bitmap myBitmap = BitmapFactory.decodeFile(fileTest.getAbsolutePath());
 
-    public static Mat load(File file, int flags) throws IOException {
-        if(!file.exists()) {
-            throw new FileNotFoundException("Image file does not exist: " + file.getAbsolutePath());
-        }
-        Mat image = imread(file.getAbsolutePath(), flags);
-        if(image == null || image.empty()) {
-            throw new IOException("Couldn't load image: " + file.getAbsolutePath());
-        }
-        return image;
-    }
-    public static void show(Mat image, String caption) {
-        CanvasFrame canvas = new CanvasFrame(caption, 1);
-        canvas.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        FrameConverter<Mat> converter = new OpenCVFrameConverter.ToMat();
-        canvas.showImage(converter.convert(image));
+        //imageToAnalyse.setImageBitmap(myBitmap);
     }
 
-    public static DMatch[] toArray(DMatchVector matches) {
-        assert matches.size() <= Integer.MAX_VALUE;
-        // for the simplicity of the implementation we will assume that number of key points is within Int range.
-        int n = (int) matches.size();
 
-        // Convert keyPoints to Scala sequence
-        DMatch[] result = new DMatch[n];
-        for (int i = 0; i < n; i++) {
-            result[i] = new DMatch(matches.get(i));
-        }
 
-        return result;
 
-        //  Bundle extras = getIntent().getExtras();
-        //Bitmap bmp = extras.getParcelable("image");
 
-    }
+
 
 
 }

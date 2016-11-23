@@ -1,3 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="/Users/benjaminguilbert/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/videoinput/0.200-0.11/9c2e18e57dc2845b792d6828108d5ce6f5746168/videoinput-0.200-0.11.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="9c2e18e57dc2845b792d6828108d5ce6f5746168">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/videoinput-0.200-0.11_bb5e66ada4e4a2e55d11499663cbd03f67350c03/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/artoolkitplus/2.3.1-0.11/9a23044129528e930efdf1874299fae21dd29582/artoolkitplus-2.3.1-0.11.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="9a23044129528e930efdf1874299fae21dd29582">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/artoolkitplus-2.3.1-0.11_9fbfa0fc746dcd55028cd147225375be4a79e4b0/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="45f5eda279825ff470e3f51019d374d1ef61e000">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.2.0_55bff0fd9c8b7c3690f080d1181dab9d70f830a5/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="6eb9107eb34d2fe2b020662b7fbbec991dcba846">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-24.2.0_d99a36b24ea234ed83d51c51a49394e22cc74625/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="f9b41622897665678d31d78e57a361cb0cebcb0d">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-24.2.0_a3f78408dfcb6ffb82af31e12046f1632b6b79b6/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="d8bd2268fdcbfd52c76ade65d9900cd8def93a44">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-24.2.0_554c7389fb8e71bb47e62e666f8133457bc63d79/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.0/jars/libs/internal_impl-24.2.0.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="032a4b53def5e2ceedfc2e793b126c0163cfa1dd">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.0_1d1a15b7375613103b164e6452e4c2daa002932d/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/flandmark/1.07-0.11/d7848d87b1ceb9adb1277d8d23eeb050679e8703/flandmark-1.07-0.11.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="d7848d87b1ceb9adb1277d8d23eeb050679e8703">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/flandmark-1.07-0.11_9540db822da7939d7bc83bfc26fcdb08c745c89f/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.0/jars/libs/internal_impl-24.2.0.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="6e02e34594ebe9c0501ffda8dd48497f81b82977">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.0_dde32b6f419e23acfe3a839229ba1552d9f90110/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/opencv/2.4.11-0.11/59bab66af4cb22e942ff4031f56c62382c21c59a/opencv-2.4.11-0.11.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="59bab66af4cb22e942ff4031f56c62382c21c59a">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/opencv-2.4.11-0.11_565648e38ed5284e2108757642d1aa0b4ebaa3b8/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="f3ee23ef25c9a8fe3d40246d0b7097267963a612">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.2.0_ea6066b540fa31d0dce63a4960fd95424cc0c79a/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="9560cf8ebcc1dff59a369df3e37a0c43586d9d2d">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_38d5cab0bd103c590ed479caabd0baebf1845844/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/libdc1394/2.2.3-0.11/cadd6fc64bd9f021dde94b5a733ddc463ef10ba4/libdc1394-2.2.3-0.11.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="cadd6fc64bd9f021dde94b5a733ddc463ef10ba4">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/libdc1394-2.2.3-0.11_a11976206119a434e8a36c7cd4c000462627dc1f/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="c3c638be6e650b165ab9ae144857b64e82787fad">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.2.0_2a50bae328d051fd2d13580bc3419c5fb28ff77d/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="d0dda274b703dd9c5bb056867649d22b4171ae7d">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-8.1.0_ea284936b1475933311826e739e01d6e546b5775/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/ffmpeg/2.6.1-0.11/b4793a738211cbcc9be0c57c3b6da1a261f73ab4/ffmpeg-2.6.1-0.11.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="b4793a738211cbcc9be0c57c3b6da1a261f73ab4">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/ffmpeg-2.6.1-0.11_a7c05c6d197cc13af0eabbc1286090cbaaeefa30/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="24fefadb5ed3a5068c9795840925f418d037f5e0">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_638b6b640058f973635fb61602e421d890e19fb6/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/.gradle/caches/modules-2/files-2.1/org.bytedeco/javacv/0.11/6c6b977efb90963587da9e2fead022d7c0677649/javacv-0.11.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="6c6b977efb90963587da9e2fead022d7c0677649">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/javacv-0.11_c60d05c8fef2ecc630f5a4c0cde66d2e4d0ec58f/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/8.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="4477ea44f5ec5ad064022a22691732d7638ff197">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-appindexing-8.1.0_4dd69538b7564cdaf895879b025ec510d84a23c7/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/libs/opencv.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="2cbce052bcc7780513b3c54594ba13a370621154">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/2/opencv_84adb7f7b47a29731bd621e15ecc887b363b4edf/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="c84e216d9bf618464d6b9564d71d9a656433e7c4">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-24.2.0_3d858be4e87ad4c6123f07486935de089824f333/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/flycapture/2.7.3.19-0.11/3b1d17b434206a1a86a20fab03757456fcc8097/flycapture-2.7.3.19-0.11.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="03b1d17b434206a1a86a20fab03757456fcc8097">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/flycapture-2.7.3.19-0.11_ac281a97492affa6e3ef25af0ab3cc28dc3f6a1f/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/jars/libs/internal_impl-24.2.0.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="771b3cc0e597b54da25f8086ba73180c59c6bc71">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.0_7de17b927475b39874f4db00f422bda9c1a12e2d/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.0/jars/libs/internal_impl-24.2.0.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="60d7b23621d31e6f42f4f76f16af467e57a20cda">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.0_dbf5ff158accacd81a0f72f4adb8a7078b33bb47/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/.gradle/caches/modules-2/files-2.1/org.bytedeco/javacpp/0.11/255a55fca8f558bb2de0305b91048c59586c1de1/javacpp-0.11.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="255a55fca8f558bb2de0305b91048c59586c1de1">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/javacpp-0.11_1942b64f5cf3ad649e6aea1c591ea37f0d183619/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/libfreenect/0.5.2-0.11/7a1c5c5f498127c6cac407c33c04442febebadf5/libfreenect-0.5.2-0.11.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="7a1c5c5f498127c6cac407c33c04442febebadf5">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/libfreenect-0.5.2-0.11_fb23672baf949b60e5d91e3a2f693001bdb0af5b/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.0/jars/libs/internal_impl-24.2.0.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="045be695d968dd707691cc55d23746dbf8cf569a">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.0_efa4e4e677fda6d198bbbf354a3dd8897c4b311a/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="beac40bcc8a320a896dd15f5109cfcaea5e1e0e3">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.2.0_d1c070f1fc95c5bd84cb11ba69fa60e85cf8118f/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="fcc945a86ebcbf527429acb8216ec7dae2c06417">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-24.2.0_0b34013712d70e11b077296c1a0ba7cc145895c8/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.0/support-annotations-24.2.0.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="6be858a75633b1f0a2d24cad740db57775cb6871">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.2.0_69a5ef39300fc61c4f605b149e423c849f612530/classes.dex" />
+    </item>
+
+</items>
