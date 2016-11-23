@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\utilisateur\AndroidStudioProjects\ProjetImageAndroid_part1\ProjetImageAndroid_part1\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.2"
+        sha1="4477ea44f5ec5ad064022a22691732d7638ff197">
+        <dex dex="C:\Users\utilisateur\AndroidStudioProjects\ProjetImageAndroid_part1\ProjetImageAndroid_part1\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-appindexing-8.1.0_a47ae5730c3d6fc2d523d9a3325974b7c3a06431.jar" />
+    </item>
+    <item
+        jar="C:\Users\utilisateur\AndroidStudioProjects\ProjetImageAndroid_part1\ProjetImageAndroid_part1\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.2"
+        sha1="d0dda274b703dd9c5bb056867649d22b4171ae7d">
+        <dex dex="C:\Users\utilisateur\AndroidStudioProjects\ProjetImageAndroid_part1\ProjetImageAndroid_part1\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-8.1.0_06c53708c0e8ec989d98220d56abb7d4854a8db2.jar" />
+    </item>
+
+</items>

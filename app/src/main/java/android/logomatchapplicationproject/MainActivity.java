@@ -1,5 +1,6 @@
 package android.logomatchapplicationproject;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -14,6 +15,12 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
 
 
 /*
@@ -35,6 +42,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // Request Code of the Library activity
     static int Library_RequestCode = 2;
 
+    static int Analysis_RequestCode = 3;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,30 +66,60 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnAnalysis.setOnClickListener(this);
 
         Log.i(tag, "MainActivity : OnCreate");
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             //Click on Capture Button
             case R.id.btnCapture:
-                Intent mediaCapture =  new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                Intent mediaCapture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(mediaCapture, Capture_RequestCode);
                 break;
             //Click on Library Button
             case R.id.btnLibrary:
-                Intent mediaLibrary = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                Intent mediaLibrary = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(mediaLibrary, Library_RequestCode);
                 break;
             //Click on Analysis Button
             case R.id.btnAnalysis:
-                Intent intentAnalyse = new Intent(MainActivity.this, AnalysisActivity.class);
-                Bundle extras = new Bundle();
-                extras.putParcelable("image",imageCaptured.getDrawingCache());
+                //Intent intentAnalyse = new Intent(MainActivity.this, AnalysisActivity.class);
+                // Bundle extras = new Bundle();
+                // extras.putParcelable("image",imageCaptured.getDrawingCache());
                 //passer url du fichier en parametre
-                intentAnalyse.putExtras(extras);
-                startActivity(intentAnalyse);
+                // intentAnalyse.putExtras(extras);
+                // startActivity(intentAnalyse);
+
+                //Convert to byte array
+                //ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                imageCaptured.buildDrawingCache();
+                Bitmap bmp = imageCaptured.getDrawingCache();
+               // bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                //byte[] byteArray = stream.toByteArray();
+
+                try {
+                    //Write file
+                    String filename = "bitmap.png";
+                    FileOutputStream stream = this.openFileOutput(filename, Context.MODE_PRIVATE);
+                    bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
+
+                    //Cleanup
+                    stream.close();
+                    bmp.recycle();
+
+                    //Pop intent
+                    Intent intentAnalyse = new Intent(MainActivity.this, AnalysisActivity.class);
+                    intentAnalyse.putExtra("image", filename);
+                    startActivity(intentAnalyse);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
                 break;
             default:
                 break;
@@ -87,16 +131,57 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         // if image is captured by the
-        if(requestCode == Capture_RequestCode && resultCode == RESULT_OK){
+        if (requestCode == Capture_RequestCode && resultCode == RESULT_OK) {
             Uri selectedImageUri = data.getData();
             imageCaptured.setImageURI(selectedImageUri);
-        }
-        else if(requestCode == Library_RequestCode && resultCode == RESULT_OK){
+        } else if (requestCode == Library_RequestCode && resultCode == RESULT_OK) {
+            Uri selectedImageUri = data.getData();
+            imageCaptured.setImageURI(selectedImageUri);
+        } else if (requestCode == Analysis_RequestCode && resultCode == RESULT_OK) {
             Uri selectedImageUri = data.getData();
             imageCaptured.setImageURI(selectedImageUri);
         }
 
     }
 
-    
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "Main Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app URL is correct.
+                Uri.parse("android-app://android.logomatchapplicationproject/http/host/path")
+        );
+        AppIndex.AppIndexApi.start(client, viewAction);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "Main Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app URL is correct.
+                Uri.parse("android-app://android.logomatchapplicationproject/http/host/path")
+        );
+        AppIndex.AppIndexApi.end(client, viewAction);
+        client.disconnect();
+    }
 }
