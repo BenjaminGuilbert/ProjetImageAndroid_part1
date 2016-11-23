@@ -91,19 +91,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             //Click on Analysis Button
             case R.id.btnAnalysis:
-                //Intent intentAnalyse = new Intent(MainActivity.this, AnalysisActivity.class);
-                // Bundle extras = new Bundle();
-                // extras.putParcelable("image",imageCaptured.getDrawingCache());
-                //passer url du fichier en parametre
-                // intentAnalyse.putExtras(extras);
-                // startActivity(intentAnalyse);
-
-                //Convert to byte array
-                //ByteArrayOutputStream stream = new ByteArrayOutputStream();
                 imageCaptured.buildDrawingCache();
                 Bitmap bmp = imageCaptured.getDrawingCache();
-               // bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                //byte[] byteArray = stream.toByteArray();
 
                 try {
                     //Write file
@@ -147,44 +136,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client.connect();
-        Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "Main Page", // TODO: Define a title for the content shown.
-                // TODO: If you have web page content that matches this app activity's content,
-                // make sure this auto-generated web page URL is correct.
-                // Otherwise, set the URL to null.
-                Uri.parse("http://host/path"),
-                // TODO: Make sure this auto-generated app URL is correct.
-                Uri.parse("android-app://android.logomatchapplicationproject/http/host/path")
-        );
-        AppIndex.AppIndexApi.start(client, viewAction);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "Main Page", // TODO: Define a title for the content shown.
-                // TODO: If you have web page content that matches this app activity's content,
-                // make sure this auto-generated web page URL is correct.
-                // Otherwise, set the URL to null.
-                Uri.parse("http://host/path"),
-                // TODO: Make sure this auto-generated app URL is correct.
-                Uri.parse("android-app://android.logomatchapplicationproject/http/host/path")
-        );
-        AppIndex.AppIndexApi.end(client, viewAction);
-        client.disconnect();
-    }
 }
