@@ -29,14 +29,13 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.2.0'
     compile group: 'org.bytedeco', name: 'javacv', version: '0.11'
     compile group: 'org.bytedeco.javacpp-presets', name: 'opencv', version: '2.4.11-0.11', classifier: 'android-arm'
-    compile group: 'org.bytedeco.javacpp-presets', name: 'ffmpeg', version: '2.6.1-0.11', classifier: 'android-arm'
-
-
+    compile 'org.bytedeco.javacpp-presets:ffmpeg:2.6.1-0.11'
     compile 'com.google.android.gms:play-services-appindexing:8.1.0'
-    compile project(path: ':openCVLibrary310')
+    compile project(':openCVLibrary2411')
+    compile 'com.android.volley:volley:1.0.0'
 }
