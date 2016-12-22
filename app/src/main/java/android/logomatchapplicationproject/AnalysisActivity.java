@@ -11,19 +11,15 @@ import android.widget.ImageView;
 import org.bytedeco.javacpp.*;
 import org.bytedeco.javacpp.Loader;
 import org.bytedeco.javacpp.opencv_calib3d;
-
+import org.bytedeco.javacpp.opencv_core.DMatchVector;
+import org.bytedeco.javacpp.opencv_features2d.*;
+import org.bytedeco.javacpp.opencv_core.KeyPointVector;
 import org.bytedeco.javacpp.opencv_shape;
-import static org.bytedeco.javacpp.opencv_features2d.BFMatcher;
-import static org.bytedeco.javacpp.opencv_features2d.DMatchVectorVector;
-import static org.bytedeco.javacpp.opencv_features2d.KeyPoint;
+
 import static org.bytedeco.javacpp.opencv_highgui.imread;
-import static org.bytedeco.javacpp.opencv_nonfree.SIFT;
-import org.bytedeco.javacv.CanvasFrame;
-import org.bytedeco.javacv.FrameConverter;
-import org.bytedeco.javacv.OpenCVFrameConverter;
-import static org.bytedeco.javacpp.opencv_highgui.imread;
-import org.opencv.android.Utils;
-import org.opencv.android.*;
+
+import org.bytedeco.javacpp.opencv_xfeatures2d.SIFT;
+import static org.bytedeco.javacpp.opencv_imgcodecs.IMREAD_COLOR;
 import static org.bytedeco.javacpp.opencv_core.Mat;
 import static org.bytedeco.javacpp.opencv_features2d.drawMatches;
 import org.opencv.core.*;
@@ -34,7 +30,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Vector;
 
-public class AnalysisActivity extends AppCompatActivity {
+public class AnalysisActivity extends AppCompatActivity  {
 
     ImageView imageToAnalyse;
 
@@ -63,29 +59,53 @@ public class AnalysisActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        //create Keypoints
-        KeyPoint[]  keypoints = {new KeyPoint(), new KeyPoint()};
 
-        //MAT images TAB for all pics to compute
-        Mat [] images = new Mat[]{
-                imread("app/assets/Data_BOW/TestImage/Coca_12.jpg"),
-                imread("app/assets/Data_BOW/TestImage/Coca_13.jpg")
-        };
-        //create descriptors
-        Mat[] descriptors = new Mat[2];
-        //create a SIFT
-        sift = new SIFT(nFeatures, nOctaveLayers, contrastThreshold, edgeThreshold, sigma);
 
-        //compute SIFT
-        for (int i = 0; i <= 1; i++) {
-            // Create Surf Keypoint Detector
-            sift.detect(images[i], keypoints[i]);
-            // Create Surf Extractor
-            descriptors[i] = new Mat();
-            sift.compute(images[i], keypoints[i], descriptors[i]);
+        Mat [] images_ref = new Mat[]{};
+        KeyPointVector keyPointsTest = new KeyPointVector();
+        Mat descriptorsTest = new Mat();
+
+        try {
+              /*
+         **   get Ref Images with the path
+         **   SIFT+compute
+         **   Returns Array of Images Ref
+         */
+            images_ref = handling_ImagesRef("app/assets/Data_BOW/TestImage/",nFeatures,nOctaveLayers,contrastThreshold,edgeThreshold,sigma);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
+        // TRABSFORM BMP IMAGE TO FILE
+        File file_analysis = new File("xx/xxx/xxxx/xxxx/");
+        Mat pic_analysis;
+        try {
+            pic_analysis = load(file_analysis, IMREAD_COLOR);
+            KeyPointVector keyPointsTest = new KeyPointVector();
+            SIFT siftTest = new SIFT();
+
+            // Create SIFT Ref Array
+            siftTest = SIFT.create(nFeatures, nOctaveLayers, contrastThreshold, edgeThreshold, sigma);
+            //detect SURF features and compute descriptors for both images
+            siftTest.detect(pic_analysis, keyPointsTest);
+            //Create CvMat initialized with empty pointer, using simply 'new Mat()' leads to an exception
+            siftTest.compute(pic_analysis, keyPointsTest, descriptorsTest);
+
+         } catch (IOException e) {
+             e.printStackTrace();
+        }
+
+
+
+
+
         BFMatcher matcher = new BFMatcher();
-        DMatchVectorVector matches = new DMatchVectorVector();
+        DMatchVector [] matches = new DMatchVector[images_ref.length];
+        for(int i=0;i<images_ref.length;i++){
+            matches[i] = new DMatchVector();
+            matcher.match(descriptorsTest, descriptorsRef[i], matches[i]);
+        }
+
         long t = System.currentTimeMillis();
 
         matcher.knnMatch(descriptors[0], descriptors[1], matches, 2);
@@ -102,7 +122,7 @@ public class AnalysisActivity extends AppCompatActivity {
 
     }
 
-    
+
         public static Mat load(File file, int flags) throws IOException {
             Mat image;
             if(!file.exists()) {
@@ -158,6 +178,49 @@ public class AnalysisActivity extends AppCompatActivity {
         }
         brandNewMatches.resize(sz);
         return brandNewMatches;
+    }
+
+
+    public Mat [] handling_ImagesRef(String path,int nFeatures,int nOctaveLayers,double contrastThreshold,int edgeThreshold,double sigma)throws IOException{
+        File images_path = new File(path);
+        File [] files = images_path.listFiles();
+
+        Mat[] imagesRef = new Mat[files.length];
+        KeyPointVector[] keyPointsRef = new KeyPointVector[files.length];
+        SIFT siftRef =SIFT.create(nFeatures, nOctaveLayers, contrastThreshold, edgeThreshold, sigma);
+        Mat[] descriptorsRef = new Mat[files.length];
+
+        for(int i=0;i<files.length;i++){
+            //Load image
+            imagesRef[i] = load(new File(files[i].getPath()), IMREAD_COLOR);
+
+            //Create KeyPoints
+            keyPointsRef[i] = new KeyPointVector();
+
+            //detect SURF features and compute descriptors for both images
+            siftRef.detect(imagesRef[0],keyPointsRef[0]);
+            //Create CvMat initialized with empty pointer, using simply 'new Mat()' leads to an exception
+            descriptorsRef[i] = new Mat();
+            siftRef.compute(imagesRef[i], keyPointsRef[i], descriptorsRef[i]);
+
+        }
+        System.out.println("Nb fichiers Ref : " + imagesRef.length);
+        return imagesRef;
+    }
+
+    public void handling_Pic_to_Analyse(String path,int nFeatures,int nOctaveLayers,double contrastThreshold,int edgeThreshold,double sigma) throws IOException {
+        File file_analysis = new File(path);
+        Mat pic_analysis = load(file_analysis,IMREAD_COLOR);
+        KeyPointVector keyPointsTest = new KeyPointVector();
+        SIFT siftTest = new SIFT();
+        Mat descriptorsTest = new Mat();
+
+        // Create SIFT Ref Array
+        siftTest = SIFT.create(nFeatures, nOctaveLayers, contrastThreshold, edgeThreshold, sigma);
+        //detect SURF features and compute descriptors for both images
+        siftTest.detect(pic_analysis, keyPointsTest);
+        //Create CvMat initialized with empty pointer, using simply 'new Mat()' leads to an exception
+        siftTest.compute(pic_analysis, keyPointsTest, descriptorsTest);
     }
     }
 
