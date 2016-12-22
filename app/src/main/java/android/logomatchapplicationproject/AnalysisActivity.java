@@ -25,6 +25,7 @@ import static org.bytedeco.javacpp.opencv_highgui.imread;
 import org.opencv.android.Utils;
 import org.opencv.android.*;
 import static org.bytedeco.javacpp.opencv_core.Mat;
+import static org.bytedeco.javacpp.opencv_features2d.drawMatches;
 import org.opencv.core.*;
 
 import java.io.File;
@@ -47,7 +48,7 @@ public class AnalysisActivity extends AppCompatActivity {
         double contrastThreshold = 0.03;
         int edgeThreshold = 10;
         double sigma = 1.6;
-        opencv_nonfree.SIFT sift = new opencv_nonfree.SIFT();
+       SIFT sift;
         Loader.load(opencv_calib3d.class);
         Loader.load(opencv_shape.class);
 
@@ -62,7 +63,46 @@ public class AnalysisActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        //create Keypoints
+        KeyPoint[]  keypoints = {new KeyPoint(), new KeyPoint()};
+
+        //MAT images TAB for all pics to compute
+        Mat [] images = new Mat[]{
+                imread("app/assets/Data_BOW/TestImage/Coca_12.jpg"),
+                imread("app/assets/Data_BOW/TestImage/Coca_13.jpg")
+        };
+        //create descriptors
+        Mat[] descriptors = new Mat[2];
+        //create a SIFT
+        sift = new SIFT(nFeatures, nOctaveLayers, contrastThreshold, edgeThreshold, sigma);
+
+        //compute SIFT
+        for (int i = 0; i <= 1; i++) {
+            // Create Surf Keypoint Detector
+            sift.detect(images[i], keypoints[i]);
+            // Create Surf Extractor
+            descriptors[i] = new Mat();
+            sift.compute(images[i], keypoints[i], descriptors[i]);
+        }
+        BFMatcher matcher = new BFMatcher();
+        DMatchVectorVector matches = new DMatchVectorVector();
+        long t = System.currentTimeMillis();
+
+        matcher.knnMatch(descriptors[0], descriptors[1], matches, 2);
+
+        DMatchVectorVector bestMatches = refineMatches(matches);
+
+        //****** FOR TEST ****//
+        byte[] mask = null;
+        drawMatches(images[0], keypoints[0], images[1], keypoints[1], bestMatches, images[0]);
+
+
+
+
+
     }
+
+    
         public static Mat load(File file, int flags) throws IOException {
             Mat image;
             if(!file.exists()) {
@@ -74,6 +114,7 @@ public class AnalysisActivity extends AppCompatActivity {
             }
             return image;
         }
+
     private static DMatchVectorVector refineMatches(DMatchVectorVector oldMatches) {
         // Ratio of Distances
         double RoD = 0.6;
