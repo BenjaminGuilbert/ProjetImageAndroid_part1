@@ -62,7 +62,8 @@ public class AnalysisActivity extends AppCompatActivity  {
 
 
         Mat [] images_ref = new Mat[]{};
-        KeyPointVector keyPointsTest = new KeyPointVector();
+        //normally it should be a KeyPointVector but doesn't work for Sift.detect
+        KeyPoint keyPointsTest = new KeyPoint();
         Mat descriptorsTest = new Mat();
 
         try {
@@ -81,7 +82,7 @@ public class AnalysisActivity extends AppCompatActivity  {
         Mat pic_analysis;
         try {
             pic_analysis = load(file_analysis, IMREAD_COLOR);
-            KeyPointVector keyPointsTest = new KeyPointVector();
+
             SIFT siftTest = new SIFT();
 
             // Create SIFT Ref Array
@@ -106,15 +107,15 @@ public class AnalysisActivity extends AppCompatActivity  {
             matcher.match(descriptorsTest, descriptorsRef[i], matches[i]);
         }
 
-        long t = System.currentTimeMillis();
+        //long t = System.currentTimeMillis();
 
-        matcher.knnMatch(descriptors[0], descriptors[1], matches, 2);
+        //matcher.knnMatch(descriptors[0], descriptors[1], matches, 2);
 
-        DMatchVectorVector bestMatches = refineMatches(matches);
+       // DMatchVectorVector bestMatches = refineMatches(matches);
 
         //****** FOR TEST ****//
-        byte[] mask = null;
-        drawMatches(images[0], keypoints[0], images[1], keypoints[1], bestMatches, images[0]);
+       // byte[] mask = null;
+       //    drawMatches(images[0], keypoints[0], images[1], keypoints[1], bestMatches, images[0]);
 
 
 
@@ -186,7 +187,8 @@ public class AnalysisActivity extends AppCompatActivity  {
         File [] files = images_path.listFiles();
 
         Mat[] imagesRef = new Mat[files.length];
-        KeyPointVector[] keyPointsRef = new KeyPointVector[files.length];
+        //normally it should be a KeyPointVector but doesn't work for Sift.detect
+        KeyPoint[] keyPointsRef = new KeyPoint[files.length];
         SIFT siftRef =SIFT.create(nFeatures, nOctaveLayers, contrastThreshold, edgeThreshold, sigma);
         Mat[] descriptorsRef = new Mat[files.length];
 
@@ -195,7 +197,7 @@ public class AnalysisActivity extends AppCompatActivity  {
             imagesRef[i] = load(new File(files[i].getPath()), IMREAD_COLOR);
 
             //Create KeyPoints
-            keyPointsRef[i] = new KeyPointVector();
+            keyPointsRef[i] = new KeyPoint();
 
             //detect SURF features and compute descriptors for both images
             siftRef.detect(imagesRef[0],keyPointsRef[0]);
@@ -211,7 +213,9 @@ public class AnalysisActivity extends AppCompatActivity  {
     public void handling_Pic_to_Analyse(String path,int nFeatures,int nOctaveLayers,double contrastThreshold,int edgeThreshold,double sigma) throws IOException {
         File file_analysis = new File(path);
         Mat pic_analysis = load(file_analysis,IMREAD_COLOR);
-        KeyPointVector keyPointsTest = new KeyPointVector();
+        //normally it should be a KeyPointVector but doesn't work for Sift.detect
+        KeyPoint keyPointsTest = new KeyPoint();
+
         SIFT siftTest = new SIFT();
         Mat descriptorsTest = new Mat();
 
