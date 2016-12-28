@@ -82,7 +82,7 @@
         jar="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         revision="24.0.2"
-        sha1="9560cf8ebcc1dff59a369df3e37a0c43586d9d2d">
+        sha1="ceaa6a0129c104813e3f959d92ec431d15d773be">
         <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_38d5cab0bd103c590ed479caabd0baebf1845844/classes.dex" />
     </item>
     <item
@@ -117,7 +117,7 @@
         jar="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         revision="24.0.2"
-        sha1="24fefadb5ed3a5068c9795840925f418d037f5e0">
+        sha1="d8dc77399ac69bfa1c723a95f7b1785c6b5488dc">
         <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_638b6b640058f973635fb61602e421d890e19fb6/classes.dex" />
     </item>
     <item
@@ -168,6 +168,13 @@
         revision="24.0.2"
         sha1="60d7b23621d31e6f42f4f76f16af467e57a20cda">
         <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.0_dbf5ff158accacd81a0f72f4adb8a7078b33bb47/classes.dex" />
+    </item>
+    <item
+        jar="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/exploded-aar/com.android.volley/volley/1.0.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.2"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="/Users/benjaminguilbert/travail/Télécom/2eme Année/Android/TPs/ProjetImageAndroid_part1/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.volley-volley-1.0.0_13d3c228a3e86f1e3898990700831232e3675af3/classes.dex" />
     </item>
     <item
         jar="/Users/benjaminguilbert/.gradle/caches/modules-2/files-2.1/org.bytedeco/javacpp/0.11/255a55fca8f558bb2de0305b91048c59586c1de1/javacpp-0.11.jar"
