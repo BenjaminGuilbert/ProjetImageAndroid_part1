@@ -1,6 +1,7 @@
 package android.logomatchapplicationproject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -10,6 +11,7 @@ import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 
 import org.bytedeco.javacpp.*;
@@ -39,13 +41,15 @@ import java.io.IOException;
 import java.util.Vector;
 import java.util.Arrays;
 
-public class AnalysisActivity extends AppCompatActivity {
+
+public class AnalysisActivity extends AppCompatActivity implements View.OnClickListener {
 
     // defined at each class creation
     static String tag = AnalysisActivity.class.getName();
 
     ImageView imageToAnalyse;
     File file_analysis;
+    File bestFileMatching;
 
     Mat[] descriptorsRef;
 
@@ -57,6 +61,7 @@ public class AnalysisActivity extends AppCompatActivity {
         setContentView(R.layout.activity_analysis);
 
         imageToAnalyse = (ImageView) findViewById(R.id.imageToAnalyse);
+        imageToAnalyse.setOnClickListener(this);
         Bitmap bmp = null;
         String filename = getIntent().getStringExtra("image");
 
@@ -128,6 +133,7 @@ public class AnalysisActivity extends AppCompatActivity {
              **   SIFT+compute
              **   Returns Array of Images Ref
              */
+
             images_ref = handling_ImagesRef("app/assets/Data_BOW/TestImage/",nFeatures,nOctaveLayers,contrastThreshold,edgeThreshold,sigma);
         } catch (IOException e) {
             e.printStackTrace();
@@ -153,9 +159,9 @@ public class AnalysisActivity extends AppCompatActivity {
 
         //Select the file with minimum distance
         File[] Files = new File("app/assets/Data_BOW/TestImage/").listFiles();
-        File bestFileMatching = Files[imageRefNumber];
+        bestFileMatching = Files[imageRefNumber];
 
-        //Display the file
+        //Display the matched file
         Bitmap myBitmap = BitmapFactory.decodeFile(bestFileMatching.getAbsolutePath());
         imageToAnalyse.setImageBitmap(myBitmap);
 
@@ -288,7 +294,14 @@ public class AnalysisActivity extends AppCompatActivity {
     }
 
 
-
-
-
+    @Override
+    public void onClick(View v) {
+        //Ouvrir navigateur web avec l'url de l'image matchée
+        //String fileName = bestFileMatching.getName();
+        String fileName = file_analysis.getName();
+        fileName = fileName.substring(0,fileName.lastIndexOf('.'));
+        String url = "https://fr.wikipedia.org/wiki/"+fileName;
+        Intent intent = new Intent( Intent.ACTION_VIEW, Uri.parse( url ) );
+        startActivity(intent);
+    }
 }
