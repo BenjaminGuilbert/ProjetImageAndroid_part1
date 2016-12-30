@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="opencv-2.4.11-0.11-android-arm">
-    <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/opencv/2.4.11-0.11/fca5b4f044fa8a311d78727608bf208cc50544c9/opencv-2.4.11-0.11-android-arm.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
