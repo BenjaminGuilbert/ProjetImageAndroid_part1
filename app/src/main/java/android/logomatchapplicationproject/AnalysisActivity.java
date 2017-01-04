@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import org.bytedeco.javacpp.*;
@@ -165,6 +166,7 @@ public class AnalysisActivity extends AppCompatActivity implements View.OnClickL
         Bitmap myBitmap = BitmapFactory.decodeFile(bestFileMatching.getAbsolutePath());
         imageToAnalyse.setImageBitmap(myBitmap);
 
+
     }
 
 
@@ -248,7 +250,17 @@ public class AnalysisActivity extends AppCompatActivity implements View.OnClickL
         return brandNewMatches;
     }
 
-
+    /**
+     *
+     * @param path: path Images of reference
+     * @param nFeatures
+     * @param nOctaveLayers
+     * @param contrastThreshold
+     * @param edgeThreshold
+     * @param sigma
+     * @return : Images references Array
+     * @throws IOException
+     */
     public Mat [] handling_ImagesRef(String path,int nFeatures,int nOctaveLayers,double contrastThreshold,int edgeThreshold,double sigma)throws IOException{
         File images_path = new File(path);
         File [] files = images_path.listFiles();
