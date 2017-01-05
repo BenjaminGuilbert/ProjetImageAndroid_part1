@@ -184,15 +184,15 @@ public class AnalysisActivity extends AppCompatActivity implements View.OnClickL
         DMatch[] sorted = toArray(matches);
         float somme = 0;
         Arrays.sort(sorted);
-        for(int i=0;i<sorted.length;i++){
-            somme += sorted[i].distance();
+        for (DMatch aSorted : sorted) {
+            somme += aSorted.distance();
         }
 
         return somme / numberToSelect;
 
     }
     static DMatch[] toArray(DMatchVectorVector matches) {
-        assert matches.size() <= Integer.MAX_VALUE;
+        if (matches.size() > Integer.MAX_VALUE) throw new AssertionError();
         int n = (int) matches.size();
 
         // Convert keyPoints to Scala sequence
@@ -248,7 +248,17 @@ public class AnalysisActivity extends AppCompatActivity implements View.OnClickL
         return brandNewMatches;
     }
 
-
+    /**
+     +     *
+     +     * @param path: path Images of reference
+     +     * @param nFeatures
+     +     * @param nOctaveLayers
+     +     * @param contrastThreshold
+     +     * @param edgeThreshold
+     +     * @param sigma
+     +     * @return : Images references Array
+     +     * @throws IOException
+     +     */
     public Mat [] handling_ImagesRef(String path,int nFeatures,int nOctaveLayers,double contrastThreshold,int edgeThreshold,double sigma)throws IOException{
         File images_path = new File(path);
         File [] files = images_path.listFiles();
